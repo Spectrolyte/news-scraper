@@ -37,11 +37,11 @@ router.get('/', function (req, res) {
     db.Article
     .find({})
     .then(function(dbArticle) {
-    res.json(dbArticle);
+        res.render('home', dbArticle);
     })
     .catch(function(err) {
-    res.json(err);
+        res.json(err);
     });
-})
+});
 
 module.exports = router;
