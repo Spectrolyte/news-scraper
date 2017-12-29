@@ -37,7 +37,8 @@ router.get('/', function (req, res) {
     db.Article
     .find({})
     .then(function(dbArticle) {
-        res.render('home', dbArticle);
+        console.log(dbArticle);
+        res.render('home', {dbArticle});
     })
     .catch(function(err) {
         res.json(err);

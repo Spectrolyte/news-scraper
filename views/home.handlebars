@@ -1,3 +1,11 @@
 <div class="container">
-    hello world
+    <ul class="collection">
+        {{#each dbArticle}}
+            <li class="collection-item">
+                <li>{{title}}</li>
+                <li>{{link}}</li>
+                <li>{{summary}}</li>
+            </li>
+        {{/each}}
+    </ul>
 </div>
