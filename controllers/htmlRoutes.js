@@ -57,8 +57,6 @@ router.get('/comment/:id', function (req, res) {
 })
 
 router.put('/updatecomment/:id', function (req, res) {
-    // console.log(req.body);
-    // res.end();
     db.Comment
     .create(req.body)
     .then(function (dbComment) {

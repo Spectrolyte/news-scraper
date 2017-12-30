@@ -10,8 +10,10 @@ $(function() {
         $.ajax({
             method: 'GET',
             url: '/comment/' + articleId,
-            success: function (article) {
-                console.log(article);
+            success: function (dbArticle) {
+                console.log(dbArticle);
+                $('#comment-title').val(dbArticle.comment.title);
+                $('#comment-body').val(dbArticle.comment.body);
             }
         })
     });
@@ -31,10 +33,6 @@ $(function() {
                 // empty input fields
                 $('#comment-title').val('');
                 $('#comment-body').val('');
-
-                console.log('worked');
-
-                location.reload();
             }
         })
 
