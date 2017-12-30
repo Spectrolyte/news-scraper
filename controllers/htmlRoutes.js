@@ -44,9 +44,32 @@ router.get('/', function (req, res) {
     });
 });
 
-router.put('/updatecomment', function (req, res) {
-    console.log(req.body);
-    res.end();
+router.get('/comment/:id', function (req, res) {
+    db.Article
+    .findOne({ _id: req.params.id })
+    .populate("comment")
+    .then(function (dbArticle) {
+        res.json(dbArticle);
+    })
+    .catch(function (error) {
+        res.json(error);
+    })
+})
+
+router.put('/updatecomment/:id', function (req, res) {
+    // console.log(req.body);
+    // res.end();
+    db.Comment
+    .create(req.body)
+    .then(function (dbComment) {
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
+    })
+    .then(function (dbArticle) {
+        res.json(dbArticle);
+    })
+    .catch(function (error) {
+        res.json(error);
+    })
 })
 
 module.exports = router;

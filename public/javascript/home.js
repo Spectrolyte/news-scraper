@@ -6,6 +6,14 @@ $(function() {
     $('.add-comment-btn').click(function () {
         var articleId = $(this).attr('id');
         $('#submit-comment-btn').attr('data-articleId', articleId);
+
+        $.ajax({
+            method: 'GET',
+            url: '/comment/' + articleId,
+            success: function (article) {
+                console.log(article);
+            }
+        })
     });
 
     $('#submit-comment-btn').click(function () {
@@ -14,14 +22,19 @@ $(function() {
         var commentBody = $('#comment-body').val();
         $.ajax({
             method: 'PUT',
-            url: '/updatecomment',
+            url: '/updatecomment/' + articleId,
             data: {
-                articleId: articleId,
                 title: commentTitle,
                 body: commentBody
             },
             success: function () {
+                // empty input fields
+                $('#comment-title').val('');
+                $('#comment-body').val('');
+
                 console.log('worked');
+
+                location.reload();
             }
         })
 
