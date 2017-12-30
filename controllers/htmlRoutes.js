@@ -18,8 +18,6 @@ router.get('/scrape', function (req, res) {
             result.link = $(this).children().children().attr('href');
             result.summary = $(this).children().eq(3).text();
 
-            console.log(result);
-
             db.Article
             .create(result)
             .then(function () {

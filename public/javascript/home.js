@@ -6,6 +6,16 @@ $(function() {
         $('#comment-body').val('');
         }
     });
+    
+    $('#scrape-btn').click(function () {
+        $.ajax({
+            method: 'GET',
+            url: '/scrape',
+            success: function () {
+                window.location.href = '/'
+            }
+        });
+    });
 
     // clicking the add comment button triggers the modal for comment inputs
         // attaches data-articleId attribute to pass on the articleId to be stored with the comment upon submission
@@ -17,7 +27,6 @@ $(function() {
             method: 'GET',
             url: '/comment/' + articleId,
             success: function (dbArticle) {
-                console.log(dbArticle);
                 $('#comment-title').val(dbArticle.comment.title);
                 $('#comment-body').val(dbArticle.comment.body);
             }
