@@ -1,5 +1,11 @@
 $(function() {
-    $('.modal').modal();
+    $('.modal').modal({
+        complete : function () {
+        // empty input fields
+        $('#comment-title').val('');
+        $('#comment-body').val('');
+        }
+    });
 
     // clicking the add comment button triggers the modal for comment inputs
         // attaches data-articleId attribute to pass on the articleId to be stored with the comment upon submission
