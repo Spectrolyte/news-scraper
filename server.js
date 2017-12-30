@@ -11,6 +11,7 @@ var db = require("./models");
 var router = require('./controllers/htmlRoutes.js');
 
 var PORT = 3000;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news-scraper";
 
 // Initialize Express
 var app = express();
@@ -24,7 +25,7 @@ app.use(express.static("public"));
 app.use(router);
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/news-scraper", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
