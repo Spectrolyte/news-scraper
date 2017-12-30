@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="/javascript/home.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="/javascript/home.js"></script>
     <title>Techie Crunchie</title>
 </head>
 <body>
+    <div id="comment-input" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <h2>Please title your comment and write its content below</h2>
+                <div class="input-field col s12">
+                <input id="comment-title" type="text" class="validate">
+                <label for="comment-title">Comment Title</label>
+                </div>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <textarea id="comment-body" class="materialize-textarea"></textarea>
+                        <label for="comment-body">Your Comment</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-comment-btn">Submit</a>
+        </div>
+    </div>
     {{{body}}}
 </body>
 </html>

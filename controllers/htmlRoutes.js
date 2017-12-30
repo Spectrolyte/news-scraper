@@ -37,12 +37,16 @@ router.get('/', function (req, res) {
     db.Article
     .find({})
     .then(function(dbArticle) {
-        console.log(dbArticle);
         res.render('home', {dbArticle});
     })
     .catch(function(err) {
         res.json(err);
     });
 });
+
+router.post('/newcomment', function (req, res) {
+    db.Comment
+    .create()
+})
 
 module.exports = router;
