@@ -33,6 +33,19 @@ $(function() {
         })
     });
 
+    $('.del-comment-btn').click(function () {
+        var commentId = $(this).attr('id');
+        console.log(commentId);
+
+        $.ajax({
+            method: 'DELETE',
+            url: '/delcomment/' + commentId,
+            success: function (dbComment) {
+                console.log('deleted');
+            }
+        })
+    })
+
     $('#submit-comment-btn').click(function () {
         var articleId = $(this).attr('data-articleId');
         var commentTitle = $('#comment-title').val();
@@ -44,10 +57,8 @@ $(function() {
                 title: commentTitle,
                 body: commentBody
             },
-            success: function () {
-                // empty input fields
-                $('#comment-title').val('');
-                $('#comment-body').val('');
+            success: function (dbArticle) {
+                $('.del-comment-btn').attr('id', dbArticle.comment)
             }
         })
 

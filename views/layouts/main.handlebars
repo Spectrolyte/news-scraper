@@ -12,7 +12,8 @@
     <title>Techie Crunchie</title>
 </head>
 <body>
-    <div id="comment-input" class="modal" id="comment-data">
+    {{!-- comment input --}}
+    <div id="comment-input" class="modal">
         <div class="modal-content">
             <div class="row">
                 <h5>Please title your comment and write its content below</h5>
@@ -28,6 +29,17 @@
         </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-comment-btn">Submit</a>
+        </div>
+    </div>
+    {{!-- delete comment alert --}}
+    <div class="modal" id="delete-alert">
+        <div class="modal-content">
+            <div class="row">
+                <h5>Successfully deleted comment</h5>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
         </div>
     </div>
     <div class="container">

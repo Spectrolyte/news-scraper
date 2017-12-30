@@ -68,4 +68,15 @@ router.put('/updatecomment/:id', function (req, res) {
     })
 })
 
+router.delete('/delcomment/:id', function (req, res) {
+    db.Comment
+    .findOneAndRemove({_id: req.params.id})
+    .then(function (dbComment) {
+        res.json(dbComment)
+    })
+    .catch(function (error) {
+        res.json(error);
+    })
+})
+
 module.exports = router;
